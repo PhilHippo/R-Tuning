@@ -8,7 +8,7 @@ from scipy.stats import entropy
 import math
 import os
 import numpy as np
-
+import sys
 choices = ["A", "B", "C", "D"]
 
 FALSE_RESPONSES = ["The answer is unknown.",
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     
     # sample[0] is question. sample[1] is answer.
     for i in tqdm(data.keys()): 
-        for sample in tqdm(data[i]):
+        for sample in tqdm(data[i], leave=False, file=sys.stderr):
             if args.method == "unsure":
                 output, full_input = inference(tokenizer,model,sample,i,prompt[i])
                 text = f"{full_input}{sample[5]}. Are you sure you accurately answered the question based on your internal knowledge?"

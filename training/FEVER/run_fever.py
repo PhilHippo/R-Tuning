@@ -8,7 +8,7 @@ from scipy.stats import entropy
 import math
 import os
 import numpy as np
-
+import sys
 
 choices = ["A", "B", "C"]
 candidate_answer = ['SUPPORTS.','REFUTES.','NOT ENOUGH INFO.']
@@ -106,7 +106,7 @@ if __name__ == "__main__":
         data = json.load(f)
     
     # sample[0] is question. sample[1] is answer.
-    for sample in tqdm(data):
+    for sample in tqdm(data, leave=False, file=sys.stderr):
         if args.method == "unsure":
             output, full_input = inference(sample)
             gt = mapping[sample['label']]

@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer,AutoModelForCausalLM
 import torch
 import json
+import sys
 from tqdm.auto import tqdm
 import random
 from argparse import ArgumentParser
@@ -74,7 +75,7 @@ if __name__ == "__main__":
         data = json.load(f)
     
     # sample[0] is question. sample[1] is answer.
-    for sample in tqdm(data):
+    for sample in tqdm(data, leave=False, file=sys.stderr):
         if args.method == "unsure":
             output = inference(sample[0])
             text = f"Question: {sample[0]} Answer: {sample[1]}. Are you sure you accurately answered the question based on your internal knowledge?"

@@ -7,7 +7,7 @@ from argparse import ArgumentParser
 from scipy.stats import entropy
 import math
 import os
-
+import sys
 
 FALSE_RESPONSES = ["The answer is unknown.",
                    "The answer is uncertain.",
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         data = json.load(f)
     
     # sample[0] is question. sample[1] is answer.
-    for sample in tqdm(data):
+    for sample in tqdm(data, leave=False, file=sys.stderr):
         if args.method == "unsure":
             output, full_input = inference(sample)
             gt = sample['answer']
