@@ -46,14 +46,40 @@ gdown --folder https://drive.google.com/drive/folders/17v7IbnAPXX1NQpqjlDMhhxFK0
 ## Requirements
 
 ```bash
-git clone -b v0.0.5 https://github.com/OptimalScale/LMFlow.git
+# Install and enable Git LFS
+sudo apt-get install git-lfs
+git lfs install
+git lfs pull
+
+git clone https://github.com/OptimalScale/LMFlow.git
 cd LMFlow
+git fetch --all --tags
+git reset --hard tags/v0.0.5
 conda create -n lmflow python=3.9 -y
+
 conda activate lmflow
 conda install mpi4py
+```
+
+now change to these lines in requirements.txt
+
+```
+datasets>=2.10.1
+trl==0.4.1
+```
+
+
+```bash
 bash install.sh
 cd ..
 ```
+
+```bash
+git clone https://github.com/OptimalScale/LMFlow.git
+cd LMFlow
+git checkout tags/v0.0.5 -b v0.0.5-branch
+```
+
 The `LMFlow` environment contains all the packages needed.
 
 ## Constructing Training Datasets
