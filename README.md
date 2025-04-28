@@ -35,8 +35,12 @@ cd R-Tuning-code
 ## Dataset Download
 
 Please download the datasets from the link and put the folder inside the `R-Tuning-code/dataset` folder.
-```bash
+
 https://drive.google.com/drive/folders/17v7IbnAPXX1NQpqjlDMhhxFK0cuNYSd6?usp=sharing
+
+```bash
+pip install gdown
+gdown --folder https://drive.google.com/drive/folders/17v7IbnAPXX1NQpqjlDMhhxFK0cuNYSd6
 ```
 
 ## Requirements
