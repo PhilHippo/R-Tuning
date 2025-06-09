@@ -1,0 +1,12 @@
+
+Dataset	Domain	Model	R-Tuning	Vanilla
+ParaRel	
+        ID	OpenLLaMA-3B	91.12	81.11
+    	OOD	OpenLLaMA-3B	61.16	60.32
+
+
+MMLU	    
+        ID	OpenLLaMA-3B	--.--	23.59
+	OOD	OpenLLaMA-3B	--.--	25.38
+		
+
